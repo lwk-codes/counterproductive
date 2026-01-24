@@ -12,7 +12,7 @@
 <p>
 <br>
 
-The Online Retail POS System is a web-based application developed with Django, designed to manage retail operations efficiently by handling inventory, sales, and hardware integrations. You can run it locally and access it from different devices on the same network using the system's IP address.
+The Online Retail POS System is a web-based application developed with Django, designed to manage retail operations efficiently by handling inventory, sales, and hardware integrations. You can run it locally.
 
 <br>
 
@@ -217,5 +217,6 @@ This project is licensed under MIT License. For more details, refer to the Licen
 
 
 
-#   c o u n t e r p r o d u c t i v e  
+#   c o u n t e r p r o d u c t i v e 
+ 
  
