@@ -50,8 +50,10 @@ DATABASES = {
     'default':  database_dict[os.getenv('NAME_OF_DATABASE', 'sqlite')]
     
 }
-
-
+# Development: folders Django should look in
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # <-- make sure this folder exists!
+]
 ## COMMENT/UNCOMMENT to switch from  sqllite file to regular cloud database, configuration may differ
 ##  Database Connection
 
@@ -100,3 +102,16 @@ PRINTER_VENDOR_ID = os.getenv('PRINTER_VENDOR_ID', "")
 PRINTER_PRODUCT_ID = os.getenv('PRINTER_PRODUCT_ID', "")
 PRINT_RECEIPT = os.getenv('PRINT_RECEIPT', False)
 CASH_DRAWER = os.getenv('CASH_DRAWER', False)
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# URL to access static files
+STATIC_URL = '/static/'
+
+# Folder where collectstatic puts files for production
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Folders Django looks at for dev static files (must exist!)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # <-- DO NOT put STATIC_ROOT here
+]
