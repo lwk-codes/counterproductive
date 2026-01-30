@@ -17,7 +17,8 @@ RUN pip install -r requirements.txt --no-cache-dir
 # Expose port 8000
 EXPOSE 8000
 
-RUN python manage.py collectstatic
+RUN python manage.py collectstatic --noinput
+
 
 # Please provide env varibales that are required to set up database configuration
 # Command to run the migrations and start the server
