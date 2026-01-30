@@ -111,22 +111,22 @@ def endTransactionReceipt(request,transNo):
             change = f"""<table class="table text-white h3 p-0 m-0"> 
                             <tr> 
                                 <td class="text-left pl-5"> Total : </td> 
-                                <td class="text-right pr-5"> {request.GET["total"]} $</td> 
+                                <td class="text-right pr-5"> {request.GET["total"]} Ksh</td> 
                             </tr> 
                             <tr> 
                                 <td class="text-left pl-5"> Cash : </td> 
-                                <td class="text-right pr-5"> {request.GET["value"]} $</td> 
+                                <td class="text-right pr-5"> {request.GET["value"]} Ksh</td> 
                             </tr> 
                             <tr class="h1 badge-danger" >  
                                 <td style="padding-top:15px"> Change : </td> 
-                                <td style="padding-top:15px"> {change*(-1):.2f} $</td> 
+                                <td style="padding-top:15px"> {change*(-1):.2f} Ksh</td> 
                             </tr> 
                         </table>"""
         elif request.GET["type"]=="card":
             change = f"""<table class="table text-white h3 p-0 m-0"> 
                             <tr> 
                                 <td class="text-left pl-5"> Total : </td> 
-                                <td class="text-right pr-5"> {request.GET["total"]} $</td> 
+                                <td class="text-right pr-5"> {request.GET["total"]} Ksh</td> 
                             </tr> 
                             <tr> 
                                 <td class="text-left pl-5"> Card : </td> 
@@ -191,8 +191,8 @@ def addTransaction(user,payment_type,total,cart,value):
     
     total_string = f"Sub-Total: {round(total-tax_total,2)}  Tax-Total: {round(tax_total,2)}".center(settings.RECEIPT_CHAR_COUNT)
     total_string = total_string + "\n" + (' - '*int(settings.RECEIPT_CHAR_COUNT/3)) +"\n" + f"{'TOTAL SALE':>10}: {round(total,2)}".rjust(settings.RECEIPT_CHAR_COUNT)
-    total_string = total_string + "\n" + f"{str(payment_type):>10}: $ {round(value,2):.2f}".rjust(settings.RECEIPT_CHAR_COUNT)
-    total_string = total_string + "\n" + f"{'CHANGE':>10}: $ {round(value-total,2):.2f}".rjust(settings.RECEIPT_CHAR_COUNT)
+    total_string = total_string + "\n" + f"{str(payment_type):>10}: Ksh {round(value,2):.2f}".rjust(settings.RECEIPT_CHAR_COUNT)
+    total_string = total_string + "\n" + f"{'CHANGE':>10}: Ksh {round(value-total,2):.2f}".rjust(settings.RECEIPT_CHAR_COUNT)
 
     receipt = settings.RECEIPT_HEADER+ "\n\n" +cart_string+ f"\n{'-'*settings.RECEIPT_CHAR_COUNT}\n{total_string}"+"\n\n" + settings.RECEIPT_FOOTER
     # receipt = settings.RECEIPT_HEADER+f"\n{'*'*int(settings.RECEIPT_CHAR_COUNT)}\n" +cart_string+ f"\n{'-'*settings.RECEIPT_CHAR_COUNT}\n{total_string}"+f"\n{'*'*int(settings.RECEIPT_CHAR_COUNT)}\n" + settings.RECEIPT_FOOTER

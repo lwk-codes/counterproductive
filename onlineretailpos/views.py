@@ -90,7 +90,7 @@ def retail_display(request,values=None):
             response = response + f"""</table> </div> 
                                         <div class="card-footer py-3">
                                             <h1 class="m-0 font-weight-bold text-primary">Transaction Total:
-                                            <span class="m-0 font-weight-bold text-dark" style="float:right;item-align:right">$ {total:.2f}</span>
+                                            <span class="m-0 font-weight-bold text-dark" style="float:right;item-align:right">Ksh {total:.2f}</span>
                                             </h1>
                                         </div>
                                     </div>"""
